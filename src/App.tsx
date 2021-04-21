@@ -1,10 +1,10 @@
 import React from "react";
-import CharacterList from "./components/characterList";
+import { CharacterCatalogue } from "./components/characterCatalogue";
 
 function App() {
   return (
     <div className="App">
-      <CharacterList />
+      <CharacterCatalogue />
     </div>
   );
 }

@@ -2,8 +2,8 @@ import { API_URL } from "../api";
 
 interface CharactersState {
   data: any; //fetched data
-  charactersAll: Array<Object>; //all characters which has been fetched so far
-  charactersSelected: Array<Object>; //characters selected to be displayed
+  charactersAll: Array<any>; //all characters which has been fetched so far
+  charactersSelected: Array<any>; //characters selected to be displayed
   startIndex: number; //start index for selecting items to copy from charactersAll to charactersSelected
   endIndex: number; //end index for selecting items to copy from charactersAll to charactersSelected
   lastPageNumber: number; //number of last page in API
