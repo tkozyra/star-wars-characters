@@ -40,7 +40,10 @@ const Character: React.FC<Props> = ({
   }, [setTitles, films, stateFilms.films]);
 
   return (
-    <Container onClick={() => setDetailsVisible(!detailsVisible)}>
+    <Container
+      detailsVisible={detailsVisible}
+      onClick={() => setDetailsVisible(!detailsVisible)}
+    >
       <ItemsContainer>
         <ItemLeft>
           <Title>Name</Title>

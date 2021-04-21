@@ -24,7 +24,6 @@ export function fetchFilms() {
     dispatch(fetchFilmsBegin());
     return axios.get(`${API_URL}/films`).then(
       (response) => {
-        console.log(response.data);
         dispatch(fetchFilmsSuccess(response.data));
       },
       (error) => {

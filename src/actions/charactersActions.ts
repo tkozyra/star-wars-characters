@@ -56,7 +56,6 @@ export function fetchAndGetCharacters(url: string, numberOfCharacters: number) {
         dispatch(fetchCharactersSuccess(response.data, numberOfCharacters));
       },
       (error) => {
-        console.log(error);
         dispatch(fetchCharactersFailure(error));
       }
     );

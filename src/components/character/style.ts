@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+type Props = {
+  detailsVisible: boolean;
+};
+
+export const Container = styled.div<Props>`
+  ${({ detailsVisible }) =>
+    detailsVisible && `box-shadow: 2px 2px 2px 0px #ffe81f;`};
+
   display: flex;
   flex-direction: column;
-  // padding: 8px 16px;
   border: 1.5px solid #ffe81f;
   border-radius: 5px;
   margin: 8px 0;
