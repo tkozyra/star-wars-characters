@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks";
+import { Film } from "../../types";
 import {
   Container,
   Item,
@@ -34,7 +35,7 @@ const Character: React.FC<Props> = ({
   useEffect(() => {
     setTitles(
       films.map(
-        (url) => stateFilms.films.find((film: any) => film.url === url).title
+        (url) => stateFilms.films.find((film: Film) => film.url === url).title
       )
     );
   }, [setTitles, films, stateFilms.films]);

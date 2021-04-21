@@ -59,11 +59,14 @@ export const FilterResetButton = styled.button`
   background-color: #f3f3f3;
   border: 2px solid #f3f3f3;
   border-radius: 5px;
-  padding: 8px 16px;
+  padding: 8px 8px;
   &:hover {
     border-color: #ffe81f;
   }
   color: #2b2d2f;
   transition: 0.2s ease;
   cursor: pointer;
+  @media (min-width: 1024px) {
+    padding: 8px 16px;
+  }
 `;

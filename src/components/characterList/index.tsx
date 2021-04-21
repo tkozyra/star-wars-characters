@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import { getMoreCharacters } from "../../actions/charactersActions";
 import { fetchFilms } from "../../actions/filmsActions";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import { CharacterType } from "../../types";
 import Character from "../character";
 import { Spinner } from "../spinner";
 import { Button, Container, FilterResetButton, Form, Input } from "./style";
@@ -15,7 +15,9 @@ const CharacterList: React.FC = () => {
   const numberOfCharactersFetchedOnStart = 10;
 
   const [name, setName] = useState("");
-  const [filteredCharacters, setFilteredCharacters] = useState<any[]>([]);
+  const [filteredCharacters, setFilteredCharacters] = useState<CharacterType[]>(
+    []
+  );
 
   useEffect(() => {
     dispatch(fetchFilms());
@@ -47,7 +49,7 @@ const CharacterList: React.FC = () => {
 
   return (
     <Container loading={characters.loading}>
-      {!!filteredCharacters && !!films.films.length && !characters.loading && (
+      {filteredCharacters && films.films.length && !characters.loading ? (
         <Form>
           <Input
             type="text"
@@ -65,7 +67,7 @@ const CharacterList: React.FC = () => {
             Reset filter
           </FilterResetButton>
         </Form>
-      )}
+      ) : null}
 
       {filteredCharacters && films.films.length && !characters.loading ? (
         filteredCharacters.map((character) => {
@@ -85,18 +87,20 @@ const CharacterList: React.FC = () => {
         <Spinner></Spinner>
       )}
 
-      {!filteredCharacters.length && !characters.loading && (
+      {!filteredCharacters.length &&
+      films.films.length &&
+      !characters.loading ? (
         <h2>No characters found.</h2>
-      )}
+      ) : null}
 
       {filteredCharacters &&
-        !characters.allCharactersFetched &&
-        films.films.length &&
-        !name.length && (
-          <Button onClick={() => getMore(numberOfCharactersFetched)}>
-            Load more characters
-          </Button>
-        )}
+      !characters.allCharactersFetched &&
+      films.films.length &&
+      !name.length ? (
+        <Button onClick={() => getMore(numberOfCharactersFetched)}>
+          Load more characters
+        </Button>
+      ) : null}
     </Container>
   );
 };

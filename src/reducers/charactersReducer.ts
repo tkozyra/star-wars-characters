@@ -1,9 +1,17 @@
 import { API_URL } from "../api";
+import { CharacterType } from "../types";
+
+interface Data {
+  count: number;
+  next?: string | null;
+  previous?: string | null;
+  results?: Array<CharacterType>;
+}
 
 interface CharactersState {
-  data: any; //fetched data
-  charactersAll: Array<any>; //all characters which has been fetched so far
-  charactersSelected: Array<any>; //characters selected to be displayed
+  data: Data; //fetched data
+  charactersAll: Array<CharacterType>; //all characters which has been fetched so far
+  charactersSelected: Array<CharacterType>; //characters selected to be displayed
   startIndex: number; //start index for selecting items to copy from charactersAll to charactersSelected
   endIndex: number; //end index for selecting items to copy from charactersAll to charactersSelected
   lastPageNumber: number; //number of last page in API
@@ -14,7 +22,7 @@ interface CharactersState {
 }
 
 const initialState: CharactersState = {
-  data: [],
+  data: { count: 0 },
   charactersAll: [],
   charactersSelected: [],
   startIndex: 0,

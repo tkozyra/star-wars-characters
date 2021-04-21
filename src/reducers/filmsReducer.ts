@@ -1,6 +1,15 @@
+import { Film, FilmShort } from "../types";
+
+interface Data {
+  count?: number;
+  next?: string | null;
+  previous?: string | null;
+  results?: Array<Film>;
+}
+
 interface FilmsState {
-  films: Array<Object>;
-  data: Object;
+  films: Array<FilmShort>;
+  data: Data;
   loading: boolean;
   error: string | null;
 }
