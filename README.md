@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+# Star Wars Characters Catalogue
+
+Simple React app for displaying Star Wars characters obtained from swapi
+
+---
+
+## Project demo
+
+Demo available at: http://sw-app.surge.sh/
+
+---
+
+## Technologies
+
+- TypeScript
+- React
+- Redux
+- Styled Components
+
+---
+
+## Screenshots
+
+<img width="800" src="https://i.imgur.com/0ROXqPY.png"/>
+<img width="800" src="https://i.imgur.com/uleRAiQ.png"/>
+
+---
+
+## Build
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
