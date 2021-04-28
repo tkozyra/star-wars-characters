@@ -11,7 +11,7 @@ const CharacterList: React.FC = () => {
   const dispatch = useAppDispatch();
   const characters = useAppSelector((state) => state.characters);
   const films = useAppSelector((state) => state.films);
-  const numberOfCharactersFetched = 5;
+  const numberOfCharactersFetched = 10;
   const numberOfCharactersFetchedOnStart = 10;
 
   const [name, setName] = useState("");
@@ -43,10 +43,6 @@ const CharacterList: React.FC = () => {
     }
   }, [name, characters]);
 
-  if (characters.loading) {
-    return <Spinner />;
-  }
-
   return (
     <Container loading={characters.loading}>
       {filteredCharacters && films.films.length && !characters.loading ? (
@@ -69,7 +65,7 @@ const CharacterList: React.FC = () => {
         </Form>
       ) : null}
 
-      {filteredCharacters && films.films.length && !characters.loading ? (
+      {filteredCharacters && films.films.length ? (
         filteredCharacters.map((character) => {
           return (
             <Character
@@ -84,7 +80,7 @@ const CharacterList: React.FC = () => {
           );
         })
       ) : (
-        <Spinner></Spinner>
+        <Spinner />
       )}
 
       {!filteredCharacters.length &&

@@ -5,12 +5,13 @@ type Props = {
 };
 
 export const Container = styled.div<Props>`
-  ${({ loading }) => loading && `opacity: 0.3`};
+  ${({ loading }) => loading && `opacity: 0.2`};
 
   display: flex;
   flex-direction: column;
   width: 95vw;
   margin: 0;
+  margin-bottom: 3em;
 
   @media (min-width: 760px) {
     width: 90vw;
